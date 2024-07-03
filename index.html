@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Frontend Mentor | Interactive card details form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cards-section">
+            <div class="cards">
+                <div class="front-card">
+                    <img src="./images/card-logo.svg" alt="logo" class="card-logo">
+                    <div class="card-container">
+                        <img src="./images/bg-card-front.png" alt="card front">
+                        <h1 id="number">0000 0000 0000 0000</h1>
+                        <div class="card-info">
+                            <span id="name">Jane Appleseed</span>
+                            <span id="date">
+                                <span id="month">00</span>
+                                /
+                                <span id="year">00</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="back-card">
+                    <img src="./images/bg-card-back.png" alt="back card">
+                    <span id="cvc">000</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-section">
+            <form>
+                <div class="block-1">
+                    <label for="input-name">Cardholder Name</label>
+                    <input type="text" placeholder="e.g Jane Appleseed" id="input-name" required><br><span class="error-message-name errorX hidden"></span><br>
+                </div>
+                <div class="block-2">
+                    <label for="input-number">Card Number</label>
+                    <input type="number" placeholder="e.g 1234 5678 9123 0000" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" maxlength="16" minlength="16" id="input-number" required><br><span class="error-message-number errorX hidden"></span><br>
+                </div>
+                <div class="block-3">
+                    <div class="date-block">
+                        <label for="date-block">Exp. Date (MM/YY)</label>
+                        <div class="two-boxes-input">
+                            <div>
+                                <input type="number" placeholder="MM" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, maxLength)" minlength="2" maxlength="2" id="input-month" required>
+                            </div>
+                            <div>
+                                <input type="number" placeholder="YY" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, maxLength)" minlength="2" maxlength="2" id="input-year" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cvc-block">
+                        <label for="input-cvc">CVC</label>
+                        <input type="number" placeholder="e.g 123" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, maxLength)" maxlength="3" id="input-cvc" required><br><span class="error-message-cvc errorX hidden"></span>
+                    </div>
+                </div>
+                <span class="error-message-date errorX hidden"></span>
+                <button id="submit-btn" type="submit">Confirm</button>
+            </form>
+
+            <!--Completed state start -->
+            <div class="thank-you hidden">
+                <img src="./images/icon-complete.svg" alt="Completed">
+                <h1>Thank You!</h1>
+                <p>We've added your card details</p>
+                <button class="finish-button">Continue</button>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
